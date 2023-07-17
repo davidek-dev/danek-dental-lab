@@ -1,11 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import { contentfulClient } from "../lib/contenful"
+import type { BlogPost } from "../lib/contenful"
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import {load} from 'cheerio';
+import RichTextRenderer from "@caisy/rich-text-astro-renderer";
+
+
+const entries = await contentfulClient.getEntries<BlogPost>({
+  content_type: "blogPost",
+});
+
+const posts = entries.items.map((item) => {
+  const { title, date, description, slug } = item.fields;
+  return {
+    title,
+    slug,
+    description,
+    date: new Date(date).toLocaleDateString()
+  };
+});
+
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<h1 class="text-3xl font-bold underline">Welcome to <span class="text-gradient">Astro</span></h1>
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
@@ -31,6 +52,20 @@ import Card from '../components/Card.astro';
 				title="Community"
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
+		</ul>
+
+		<h1>My Blog</h1>
+		<ul>
+		  {posts.map((post) => (
+			<li class="mb-8">
+			  <a href={`/posts/${post.slug}/`}>
+				<h2>{post.title}</h2>
+			  </a>
+			  <time>{post.date}</time>
+			  <br /> 
+			  <article set:html={documentToHtmlString(post.description)} />
+			</li>
+		  ))}
 		</ul>
 	</main>
 </Layout>
