@@ -4,8 +4,6 @@ import Card from '../components/Card.astro';
 import { contentfulClient } from "../lib/contenful"
 import type { BlogPost } from "../lib/contenful"
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import {load} from 'cheerio';
-import RichTextRenderer from "@caisy/rich-text-astro-renderer";
 
 
 const entries = await contentfulClient.getEntries<BlogPost>({
@@ -67,6 +65,11 @@ const posts = entries.items.map((item) => {
 			</li>
 		  ))}
 		</ul>
+
+		<button
+  class="btn w-64 rounded-full bg-black">
+  Button
+</button>
 	</main>
 </Layout>
 
