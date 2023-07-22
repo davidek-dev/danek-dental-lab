@@ -7,7 +7,6 @@ module.exports = {
 	variants: {},
 	mode: 'jit',
 	purge: [],
-	darkMode: false,
 	plugins: [
 		require('daisyui'), // Make sure this line is present
 		// other plugins if any
