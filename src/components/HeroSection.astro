@@ -2,10 +2,16 @@
 interface Props {
 	title: string;
 	body: string;
+    btnText: string;
 	href: string;
+    img: string;
+    
+    
+
+
 }
 
-const { href, title, body } = Astro.props;
+const { href, title, btnText, body, img } = Astro.props;
 ---
 
 <li class="link-card">

@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["../../../../Documents/GitHub/my-portfolio/.netlify/functions-internal/_empty-middleware.mjs"],
+  "sourceRoot": "C:/Users/david/AppData/Local/Temp/tmp-21764-JAngUlyWSGNf",
+  "sourcesContent": ["const onRequest = undefined;\n\nexport { onRequest };\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAAM,YAAY;",
+  "names": []
+}

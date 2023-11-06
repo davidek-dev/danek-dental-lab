@@ -1,0 +1,20 @@
+{
+	"siteId": "348839c9-802e-40e0-98e9-b37bd2566dc9",
+	"geolocation": {
+		"data": {
+			"city": "Hamburg",
+			"country": {
+				"code": "DE",
+				"name": "Germany"
+			},
+			"subdivision": {
+				"code": "HH",
+				"name": "Free and Hanseatic City of Hamburg"
+			},
+			"timezone": "Europe/Berlin",
+			"latitude": 53.5651,
+			"longitude": 9.9739
+		},
+		"timestamp": 1690030732944
+	}
+}

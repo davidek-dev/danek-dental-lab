@@ -1,7 +1,7 @@
 ---
-import { contentfulClient } from "../../lib/contenful";
+import { contentfulClient } from "../../lib/contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import type { BlogPost } from "../../lib/contenful";
+import type { BlogPost } from "../../lib/contentful";
 
 
 export async function getStaticPaths() {
@@ -19,10 +19,11 @@ export async function getStaticPaths() {
   }));
   return pages;
 }
+export const prerender = true;
 
 const { content, title, date } = Astro.props;
 ---
-<html lang="en">
+<html lang="de">
   <head>
     <title>{title}</title>
   </head>

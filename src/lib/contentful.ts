@@ -1,12 +1,16 @@
 import contentful from "contentful";
 import type { Document } from "@contentful/rich-text-types";
+import type { EntrySkeletonType } from 'contentful';
 
-export interface BlogPost {
-  title: string | undefined | null | {};
-  date: string | undefined | null | {};
-  description: string | undefined | null | {};
-  content: Document | undefined | null | {};
-  slug: string | undefined | null | {};
+export interface BlogPost extends EntrySkeletonType {
+  fields: {
+    title: string;
+    date: string; // or whatever type your date field has
+    description: string;
+    slug: string;
+    content: string | void
+    // Add other fields if needed
+  };
 }
 
 export const contentfulClient = contentful.createClient({
