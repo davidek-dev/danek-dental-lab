@@ -2,34 +2,62 @@
 import { contentfulClient } from "../../lib/contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import type { BlogPost } from "../../lib/contentful";
-
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro'
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const entries = await contentfulClient.getEntries<BlogPost>({
     content_type: "blogPost",
   });
 
+
+
   const pages = entries.items.map((item) => ({
     params: { slug: item.fields.slug },
     props: {
+      hero: item.fields.blogImage.fields,
       title: item.fields.title,
+      description: documentToHtmlString(item.fields.description),
       content: documentToHtmlString(item.fields.content),
       date: new Date(item.fields.date).toLocaleDateString(),
     },
   }));
+
   return pages;
 }
 export const prerender = true;
 
-const { content, title, date } = Astro.props;
+const convertStringToHTML = (htmlString) => {
+  if (typeof window !== 'undefined' && window.DOMParser) {
+    const parser = new window.DOMParser();
+    const html = parser.parseFromString(htmlString, 'text/html');
+    return html.body;
+  } else {
+    // Handle the case where DOMParser is not available
+    console.error('DOMParser is not available.');
+    return null;
+  }
+};
+
+const { hero, description, content, title, date } = Astro.props;
 ---
 <html lang="de">
-  <head>
-    <title>{title}</title>
-  </head>
-  <body>
-    <h1>{title}</h1>
-    <time>{date}</time>
-    <article set:html={content} />
-  </body>
+  <Header/>
+  <Image src={hero.file.url} alt={hero.description} height={1080} width={1920}/>
+  <p>{hero.title}</p>
+
+  <span class="flex justify-between pb-12 max-w-5xl mx-auto">
+    <h1 class="text-6xl font-extrabold">{title}</h1>
+    <time class="text-1xl font-mono">{date}</time>   
+  </span>
+
+  <div>
+    {convertStringToHTML(content)}
+  </div>
+  <div class="flex flex-col max-w-3xl mx-auto">
+    <article  set:html={description} class="pb-12 text-xl"/>
+    <article  set:html={content} class="pb-24 text-xl"/>
+ </div>
+  <Footer />
 </html>

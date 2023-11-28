@@ -7,7 +7,7 @@ export default {
   },
   variants: {},
   mode: "jit",
-  plugins: [daisyui],
+  plugins: [require("daisyui")],
   daisyui: {
     themes: [
       {
@@ -21,13 +21,12 @@ export default {
           ".drawer-button": {
           },
         },
-        dark: 
-        {
-          "primary": "#291fea",
-          "secondary": "#131051",
-          "accent": "#6f6d7e",
-          "neutral": "#0f0f3d",
-          "base-100": "#03030c",
+        dark: {
+          "primary": "#6d1b83",
+          "secondary": "#270a2f",
+          "accent": "#b130d5",
+          "neutral": "#340d3f",
+          "base-100": "#23092a",
         },
       },
     ],

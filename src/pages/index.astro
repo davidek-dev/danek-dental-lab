@@ -1,100 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import { contentfulClient } from "../lib/contentful";
-import type { BlogPost } from "../lib/contentful";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import Header from "src/components/Header.astro";
-
-const entries = await contentfulClient.getEntries<BlogPost>({
-  content_type: "blogPost",
-});
-
-const posts = entries.items.map((item) => {
-  const { title, date, description, slug } = item.fields;
-  return {
-    title,
-    slug,
-    description,
-    date: new Date(date).toLocaleDateString(),
-  };
-});
+import HeroSection from "src/components/HeroSection.astro";
+import BlogPreview from "src/components/BlogPreview.astro";
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
     <Header />
-    <ul role="list" class="link-card-grid">
-      <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
-    </ul>
-
-    <h1 class="text-5xl mt-5 mb-8 border-b-2">My Blog</h1>
-    <ul>
-      {
-        posts.map((post) => (
-          <li class="mb-8">
-            <a href={`/posts/${post.slug}/`}>
-              <h2>{post.title}</h2>
-            </a>
-            <time>{post.date}</time>
-            <br />
-            <article set:html={documentToHtmlString(post.description)} />
-          </li>
-        ))
-      }
-    </ul>
-
-    <button class="btn btn-outline"> Button</button>
-
-    <kbd class="kbd">⌘</kbd>
-    <kbd class="kbd">⌥</kbd>
-    <kbd class="kbd">⇧</kbd>
-    <kbd class="kbd">⌃</kbd>
-
-	<div class="alert alert-info">
-		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-		<span>New software update available.</span>
-	  </div>
-
-	  <div class="alert alert-success">
-		<svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-		<span>Your purchase has been confirmed!</span>
-	  </div>
-
-	  <div class="alert alert-warning">
-		<svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-		<span>Warning: Invalid email address!</span>
-	  </div>
-
-	  <div class="alert alert-error">
-		<svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-		<span>Error! Task failed successfully.</span>
-	  </div>
-
-	  <Footer />
+    <HeroSection />
+    <BlogPreview />
+    <Footer />
   </main>
 </Layout>
 
-<style>
-</style>

@@ -7,9 +7,9 @@ import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), tailwind(), image({
-    serviceEntryPoint: '@astrojs/image/sharp'
-  })],
+  integrations: [react(), tailwind()],
   output: "server",
-  adapter: netlify()
+  adapter: netlify({
+    functionPerRoute: true
+ }),
 });

@@ -1,0 +1,22 @@
+{
+    metadata: { tags: [] },
+    sys: {
+      space: { sys: [Object] },
+      type: 'Asset',
+      id: '3ak6dcA1Euw4MskcQTzsNG',
+      revision: 1,
+      createdAt: '2023-07-15T10:59:31.303Z',
+      updatedAt: '2023-07-15T11:00:05.751Z',
+      environment: { sys: [Object] },
+      locale: 'en-US'
+    },
+    fields: {
+      title: 'dodri',
+      description: 'pokemon bird 3 heads',
+      file: {
+        url: '//images.ctfassets.net/5bbtl5mo2zft/3ak6dcA1Euw4MskcQTzsNG/2acaa7621f27ba0b8b428d15c1533213/085.png',
+        details: [Object],
+        fileName: '085.png',
+        contentType: 'image/png'
+      }
+    }

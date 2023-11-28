@@ -1,0 +1,203 @@
+{
+    "name": "blogPost",
+    "description": "This content type is for a blog post",
+    "displayField": "title",
+    "fields": [
+      {
+        "id": "title",
+        "name": "title",
+        "type": "Symbol",
+        "localized": true,
+        "required": true,
+        "validations": [
+          {
+            "unique": true
+          }
+        ],
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "slug",
+        "name": "slug",
+        "type": "Symbol",
+        "localized": true,
+        "required": true,
+        "validations": [
+          {
+            "unique": true
+          }
+        ],
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "date",
+        "name": "date",
+        "type": "Date",
+        "localized": false,
+        "required": true,
+        "validations": [],
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "tags",
+        "name": "tags",
+        "type": "Array",
+        "localized": true,
+        "required": false,
+        "validations": [],
+        "disabled": false,
+        "omitted": false,
+        "items": {
+          "type": "Symbol",
+          "validations": []
+        }
+      },
+      {
+        "id": "blogImage",
+        "name": "blogImage",
+        "type": "Link",
+        "localized": false,
+        "required": true,
+        "validations": [
+          {
+            "linkMimetypeGroup": [
+              "image"
+            ]
+          }
+        ],
+        "disabled": false,
+        "omitted": false,
+        "linkType": "Asset"
+      },
+      {
+        "id": "description",
+        "name": "description",
+        "type": "RichText",
+        "localized": true,
+        "required": true,
+        "validations": [
+          {
+            "size": {
+              "min": 50,
+              "max": 160
+            }
+          },
+          {
+            "enabledMarks": [
+              "bold",
+              "italic",
+              "underline"
+            ],
+            "message": "Only bold, italic, and underline marks are allowed"
+          },
+          {
+            "enabledNodeTypes": [
+              "hyperlink"
+            ],
+            "message": "Only link to Url nodes are allowed"
+          },
+          {
+            "nodes": {}
+          }
+        ],
+        "disabled": false,
+        "omitted": false
+      },
+      {
+        "id": "content",
+        "name": "content",
+        "type": "RichText",
+        "localized": true,
+        "required": true,
+        "validations": [
+          {
+            "enabledMarks": [
+              "bold",
+              "italic",
+              "underline",
+              "code",
+              "superscript",
+              "subscript"
+            ],
+            "message": "Only bold, italic, underline, code, superscript, and subscript marks are allowed"
+          },
+          {
+            "enabledNodeTypes": [
+              "heading-1",
+              "heading-2",
+              "heading-3",
+              "heading-4",
+              "heading-5",
+              "heading-6",
+              "ordered-list",
+              "unordered-list",
+              "hr",
+              "blockquote",
+              "embedded-entry-block",
+              "embedded-asset-block",
+              "table",
+              "hyperlink",
+              "entry-hyperlink",
+              "asset-hyperlink",
+              "embedded-entry-inline"
+            ],
+            "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, table, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+          },
+          {
+            "nodes": {}
+          }
+        ],
+        "disabled": false,
+        "omitted": false
+      }
+    ],
+    "sys": {
+      "space": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Space",
+          "id": "5bbtl5mo2zft"
+        }
+      },
+      "id": "blogPost",
+      "type": "ContentType",
+      "createdAt": "2023-07-15T10:43:49.308Z",
+      "updatedAt": "2023-11-26T21:33:56.568Z",
+      "environment": {
+        "sys": {
+          "id": "master",
+          "type": "Link",
+          "linkType": "Environment"
+        }
+      },
+      "publishedVersion": 15,
+      "publishedAt": "2023-11-26T21:33:56.568Z",
+      "firstPublishedAt": "2023-07-15T10:43:49.703Z",
+      "createdBy": {
+        "sys": {
+          "type": "Link",
+          "linkType": "User",
+          "id": "5QTouZXBy5ZySruM1wYNCP"
+        }
+      },
+      "updatedBy": {
+        "sys": {
+          "type": "Link",
+          "linkType": "User",
+          "id": "5QTouZXBy5ZySruM1wYNCP"
+        }
+      },
+      "publishedCounter": 8,
+      "version": 16,
+      "publishedBy": {
+        "sys": {
+          "type": "Link",
+          "linkType": "User",
+          "id": "5QTouZXBy5ZySruM1wYNCP"
+        }
+      }
+    }
+  }
