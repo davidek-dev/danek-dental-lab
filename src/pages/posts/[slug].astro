@@ -16,7 +16,7 @@ export async function getStaticPaths() {
   const pages = entries.items.map((item) => ({
     params: { slug: item.fields.slug },
     props: {
-      hero: item.fields.blogImage.fields,
+      image: item.fields.blogImage.fields,
       title: item.fields.title,
       description: documentToHtmlString(item.fields.description),
       content: documentToHtmlString(item.fields.content),
@@ -40,12 +40,12 @@ const convertStringToHTML = (htmlString) => {
   }
 };
 
-const { hero, description, content, title, date } = Astro.props;
+const { image, description, content, title, date } = Astro.props;
 ---
 <html lang="de">
   <Header/>
-  <Image src={hero.file.url} alt={hero.description} height={1080} width={1920}/>
-  <p>{hero.title}</p>
+  <Image src={image.file.url} alt={image.description} height={1080} width={1920}/>
+  <p>{image.title}</p>
 
   <span class="flex justify-between pb-12 max-w-5xl mx-auto">
     <h1 class="text-6xl font-extrabold">{title}</h1>
