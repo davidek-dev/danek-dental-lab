@@ -32,6 +32,7 @@ export interface BlogPost extends EntrySkeletonType {
       } | never    // Add other fields if needed
   };
 }
+}
 
 export const contentfulClient = contentful.createClient({
   space: import.meta.env.CONTENTFUL_SPACE_ID,
