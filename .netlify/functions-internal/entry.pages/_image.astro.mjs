@@ -1,7 +1,7 @@
 import { renderers } from '../renderers.mjs';
 import { onRequest } from '../_empty-middleware.mjs';
 import * as adapter from '@astrojs/netlify/netlify-functions.js';
-import { manifest } from '../manifest_f95aafe1.mjs';
+import { manifest } from '../manifest_8cf001bc.mjs';
 
 const page = () => import('../chunks/pages/generic_d93f9f7a.mjs').then(n => n.g);
 
