@@ -5,7 +5,6 @@ import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
-  srcDir: 'src/pages/',
   site: 'https://danekdentallab.netlify.app',
   integrations: [react(), tailwind()],
   output: "server",
