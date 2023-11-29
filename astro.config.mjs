@@ -9,7 +9,7 @@ export default defineConfig({
   outDir: 'dist',
   site: 'https://danekdentallab.netlify.app',
   integrations: [react(), tailwind()],
-  output: "hybrid",
+  output: "server",
   adapter: netlify({
     functionPerRoute: true
  }),
