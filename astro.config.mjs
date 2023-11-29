@@ -5,8 +5,11 @@ import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
+  srcDir: 'src/pages/',
+  outDir: 'dist',
+  site: 'https://danekdentallab.netlify.app',
   integrations: [react(), tailwind()],
-  output: "server",
+  output: "hybrid",
   adapter: netlify({
     functionPerRoute: true
  }),
