@@ -11,6 +11,10 @@ export default defineConfig({
   redirects:{
 
   },
+  build:{
+    format:'file',
+    redirects: false
+  },
   integrations: [react(), tailwind()],
   output: "static",
   adapter: netlify({
