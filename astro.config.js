@@ -8,8 +8,11 @@ export default defineConfig({
   publicDir: 'public/',
   outDir: 'dist/',
   site: 'https://danekdentallab.netlify.app/',
+  redirects:{
+
+  },
   integrations: [react(), tailwind()],
-  output: "server",
+  output: "static",
   adapter: netlify({
     functionPerRoute: true
  }),
