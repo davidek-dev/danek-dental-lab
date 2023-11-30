@@ -1,9 +1,9 @@
-import { renderers } from '../../renderers.mjs';
-import { onRequest } from '../../_empty-middleware.mjs';
+import { renderers } from '../renderers.mjs';
+import { onRequest } from '../_empty-middleware.mjs';
 import * as adapter from '@astrojs/netlify/netlify-functions.js';
-import { manifest } from '../../manifest_3b717adb.mjs';
+import { manifest } from '../manifest_3b717adb.mjs';
 
-const page = () => import('../../chunks/prerender_4889d002.mjs');
+const page = () => import('../chunks/pages/landing page_5548e4e1.mjs').then(n => n.l);
 
 const pageModule = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
