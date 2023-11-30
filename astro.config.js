@@ -13,7 +13,6 @@ export default defineConfig({
   },
   build:{
     format:'file',
-    redirects: false
   },
   integrations: [react(), tailwind()],
   output: "static",
