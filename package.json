@@ -3,11 +3,11 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "npx astro dev",
+    "start": "npx astro dev",
+    "build": "npx astro build",
+    "preview": "npx astro preview",
+    "astro": "npx astro"
   },
   "dependencies": {
     "@astrojs/netlify": "^3.0.4",
@@ -16,7 +16,7 @@
     "@contentful/rich-text-html-renderer": "^16.3.0",
     "@types/react": "^18.2.38",
     "@types/react-dom": "^18.2.17",
-    "astro": "^3.6.0",
+    "astro": "^3.6.3",
     "autoprefixer": "^10.4.16",
     "contentful": "^10.6.12",
     "gsap": "^3.12.2",
@@ -30,7 +30,7 @@
     "@babel/core": "^7.23.3",
     "@babel/preset-env": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
-    "@types/node": "^20.4.2",
+    "@types/node": "^18",
     "daisyui": "^4.4.10",
     "typescript": "^5.3.2"
   }
