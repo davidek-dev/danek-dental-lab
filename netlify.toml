@@ -1,7 +1,5 @@
 [build]
   command = "npm run build"
-  publish = "dist"
+  publish = "public"
 
 [[redirects]]
-  from = "/news"
-  to = "/blog"  
