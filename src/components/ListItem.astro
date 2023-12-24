@@ -1,0 +1,29 @@
+---
+const { post } = Astro.props;
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+---
+
+<li class="flex flex-col space-y-2 md:space-y-4">
+  <section
+    class="aspect-w-6 aspect-h-2 sm:aspect-h-3 rounded-lg bg-skin-primary-muted overflow-hidden"
+  >
+    <a href={`/posts/${post.slug}`}>
+      <img
+        alt={post.blogImage.title}
+        src={post.blogImage.url}
+        class="object-center object-cover"
+      />
+    </a>
+  </section>
+  <div
+    class="bg-skin-accent-muted py-1.5 px-2.5 flex justify-between items-center rounded-md"
+  >
+    <span class="text-sm font-medium uppercase"> {post.date}</span>
+    <span class="text-xs">5 min</span>
+  </div>
+  
+  <a href={`/posts/${post.slug}`}>
+  <h3 class="text-base font-bold text-skin-secondary">{post.title}</h3>
+  <article set:html={documentToHtmlString(post.description)} />
+  </a>
+</li>

@@ -18,8 +18,6 @@ export default {
           "accent": "#838192",
           "neutral": "#0f0f3d",
           "base-100": "#f3f3fc",
-          ".drawer-button": {
-          },
         },
         dark: {
           "primary": "#6d1b83",

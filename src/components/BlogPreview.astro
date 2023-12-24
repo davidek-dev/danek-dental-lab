@@ -1,16 +1,23 @@
 ---
-import { contentfulClient } from "../lib/contentful";
+import ListItem from "../components/ListItem.astro";
 import type { BlogPost } from "../lib/contentful";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { contentfulClient } from "../lib/contentful";
+import type { Entry } from "contentful";
 
 const entries = await contentfulClient.getEntries<BlogPost>({
   content_type: "blogPost",
 });
 
-const posts = entries.items.map((item) => {
-  const { title, date, description, slug } = item.fields;
+const posts = entries.items.map((item: Entry<BlogPost, undefined, string>) => {
+  const { title, blogImage, date, description, slug } = item.fields;
   return {
     title,
+    blogImage: {
+      url: (blogImage as unknown as { fields: { file: { url: string } } })
+        .fields.file.url,
+      title: (blogImage as unknown as { fields: { title: string } }).fields
+        .title,
+    },
     slug,
     description,
     date: new Date(date).toLocaleDateString(),
@@ -18,19 +25,27 @@ const posts = entries.items.map((item) => {
 });
 ---
 
-
-<h1 class="text-5xl mt-5 mb-8 border-b-2">My Blog</h1>
-<ul>
-  {
-    posts.map((post) => (
-      <li class="mb-8">
-        <a href={`/posts/${post.slug}/`}>
-          <h2 class="text-2xl">{post.title}</h2>
-        </a>
-        <time>{post.date}</time>
-        <br />
-        <article set:html={documentToHtmlString(post.description)} />
-      </li>
-    ))
-  }
-</ul>
+<div
+  class="max-w-2xl mx-auto py-12 md:py-16 space-y-12 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
+>
+  <div class="max-w-3xl">
+    <h2 id="features-heading" class="font-medium text-skin-secondary-muted">
+      Welcome to
+    </h2>
+    <p
+      class="mt-2 text-3xl font-extrabold tracking-tight text-skin-secondary sm:text-4xl"
+    >
+      Blog Posts
+    </p>
+    <p class="mt-4 text-sm sm:text-base text-skin-secondary-muted">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel voluptas
+      cupiditate ad atque sed blanditiis, qui, facere tempore dolor, illum ab?
+      Deleniti eius pariatur velit mollitia expedita ipsa nesciunt consectetur!
+    </p>
+  </div>
+  <ol
+    class="grid items-start grid-cols-1 gap-y-16 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-12"
+  >
+    {posts && posts.map((post: object) => <ListItem post={post} />)}
+  </ol>
+</div>

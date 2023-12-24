@@ -1,3 +1,36 @@
-/* globals.css */
-:root {
+/* globals.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --primary: rgb(255 115 179);
+    --secondary: rgb(111 114 185);
+    --accent: rgb(111 114 185);
+    --neutral: rgb(111 114 185);
+    --base-100: rgb(111 114 185);
+    --dark-primary: rgb(255 115 179);
+    --dark-secondary: rgb(111 114 185);
+    --dark-accent: rgb(111 114 185);
+    --dark-neutral: rgb(111 114 185);
+    --dark-base-100: rgb(111 114 185);
+  }
 }
+
+
+        "primary": "#1f15e0",
+        "secondary": "#b1aeef",
+        "accent": "#838192",
+        "neutral": "#0f0f3d",
+        "base-100": "#f3f3fc",
+
+
+        dark: {
+        "primary": "#6d1b83",
+        "secondary": "#270a2f",
+        "accent": "#b130d5",
+        "neutral": "#340d3f",
+        "base-100": "#23092a",
+ */
