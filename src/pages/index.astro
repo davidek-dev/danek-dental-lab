@@ -2,14 +2,22 @@
 import Layout from "../layouts/Layout.astro";
 import Footer from '../components/Footer.astro';
 import Header from "src/components/Header.astro";
-import HeroSection from "src/components/HeroSection.astro";
-import BlogPreview from "src/components/BlogPreview.astro";
+import HeroSection from "src/components/homepage/HeroSection.astro";
+import BlogPreview from "src/components/homepage/BlogPreview.astro";
+import About from "src/components/homepage/About.astro"
+import Services from "src/components/homepage/Services.astro"
+import Clients from "src/components/homepage/Clients.astro"
+
 title: "Home"
 ---
 
 <Layout title="Welcome to Astro.">
     <Header />
     <HeroSection />
+    <About />
+    //hier kommt ein Zahlen Fakten infos Contact kleiner zwischen Abschnitt rein
+    <Services />
+    <Clients />
     <BlogPreview />
     <Footer />
 </Layout>

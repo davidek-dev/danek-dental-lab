@@ -8,6 +8,7 @@ const entries = await contentfulClient.getEntries<BlogPost>({
   content_type: "blogPost",
 });
 
+
 const posts = entries.items.map((item: Entry<BlogPost, undefined, string>) => {
   const { title, blogImage, date, description, slug } = item.fields;
   return {
@@ -21,7 +22,7 @@ const posts = entries.items.map((item: Entry<BlogPost, undefined, string>) => {
     slug,
     description,
     date: new Date(date).toLocaleDateString(),
-  };
+  }; 
 });
 ---
 
@@ -30,18 +31,19 @@ const posts = entries.items.map((item: Entry<BlogPost, undefined, string>) => {
 >
   <div class="max-w-3xl">
     <h2 id="features-heading" class="font-medium text-skin-secondary-muted">
-      Welcome to
+      Welcome to our 
     </h2>
     <p
       class="mt-2 text-3xl font-extrabold tracking-tight text-skin-secondary sm:text-4xl"
     >
-      Blog Posts
+      Dental and Oral Health Blog
     </p>
     <p class="mt-4 text-sm sm:text-base text-skin-secondary-muted">
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel voluptas
       cupiditate ad atque sed blanditiis, qui, facere tempore dolor, illum ab?
       Deleniti eius pariatur velit mollitia expedita ipsa nesciunt consectetur!
     </p>
+    
   </div>
   <ol
     class="grid items-start grid-cols-1 gap-y-16 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-12"
