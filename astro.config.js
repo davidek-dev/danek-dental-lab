@@ -15,7 +15,7 @@ export default defineConfig({
     format:'file',
   },
   integrations: [react(), tailwind()],
-  output: "server",
+  output: "static",
   adapter: netlify({
     functionPerRoute: true
  }),
