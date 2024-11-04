@@ -5,6 +5,10 @@ interface Props {
 
 const { title } = Astro.props;
 ---
+<style is:global>
+  @import global.css;
+</style>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,45 +24,6 @@ const { title } = Astro.props;
     <slot />
   </body>
 </html>
-<style is:global>
 
-  
-  html {
-    font-family: system-ui, sans-serif;
-  }
 
-  /* Scrollbar styles */
 
-  /* Firefox */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: oklch(var(--p));
-  }
-
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  *::-webkit-scrollbar-track {
-    background: oklch(var(--s));
-    border-radius: 5px;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: oklch(var(--n));
-    border-radius: 14px;
-    border: 1px solid;
-    border-color: oklch(var(--b)) 
-  }
-
-  .drawer-button{
-    @apply btn btn-circle btn-outline;
-  }
-
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-
-</style>
